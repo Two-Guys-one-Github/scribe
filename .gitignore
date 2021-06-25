@@ -4,6 +4,7 @@
 bin/
 include/
 pip-selfcheck.json
+Pipfile.lock
 
 # Django related 
 # src/<yourproject>/settings/local.py
