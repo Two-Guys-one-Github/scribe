@@ -54,7 +54,9 @@ sql_scribe = Sqlite3_Scribe()
 
 # testing -> Creating connection to nonexisting SQLite3 DB.
 conn = sql_scribe.create_connection(db_path)
-print(type(conn))
+# print(type(conn))
+
+
 
 
 

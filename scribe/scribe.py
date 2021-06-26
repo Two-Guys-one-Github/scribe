@@ -11,7 +11,6 @@ import platform
 # import sys
 # import os
 
-
 class Scribe(object):
     """A scribe class to common to all sub scribe classes."""
     def __init__(self) -> Scribe:
@@ -53,6 +52,7 @@ class Scribe_Reader(Scribe):
         self.rows = list()
         self.dtypes = dict()
         self.shape = tuple()
+        self.schema = dict()
         
     def read_from_csv(self,
                         file_path: str=None, 
