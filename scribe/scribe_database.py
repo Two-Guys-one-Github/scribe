@@ -6,12 +6,12 @@ SQLite3 DB-API Docs: https://docs.python.org/3/library/sqlite3.htm
 from __future__ import annotations
 import sqlite3
 from sqlite3 import Error
-from scribe import Scribe 
+from . import scribe_manager 
 from pathlib import Path
 from typing import  Union
 
-class Scribe_Build_Sqlite3(Scribe):
-    def __init__(self) -> Sqlite3_Scribe:
+class Scribe_Build_Sqlite3(scribe_manager.Scribe_Manager):
+    def __init__(self) -> Scribe_Build_Sqlite3:
         super().__init__()
         self.connection = None
         self.db_name = None
@@ -71,7 +71,7 @@ class Scribe_Build_Sqlite3(Scribe):
 
 # test -> db
 db_path = r"C:\Users\justi\Desktop\scribe\scribe\test_db\sqlite3_sameple.db"
-sql_scribe = Sqlite3_Scribe()
+sql_scribe = Scribe_Build_Sqlite3()
 
 
 # test -> db_path and db_name report correctly

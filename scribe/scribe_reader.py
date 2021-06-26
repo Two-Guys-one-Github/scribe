@@ -14,14 +14,14 @@ A class reader for reading in...
 
 from __future__ import annotations
 import csv
-import scribe_manager
+from . import scribe_manager
 from pathlib import Path
 from pathlib import PureWindowsPath
 from pathlib import PurePosixPath
 from typing import  Union, Dict
 
 
-class Scribe_Reader(.Scribe_Manager):
+class Scribe_Reader(scribe_manager.Scribe_Manager):
     """ Represents a scribe reading files or databases"""
     def __init__(self) -> Scribe_Reader:
         super().__init__()
@@ -31,8 +31,8 @@ class Scribe_Reader(.Scribe_Manager):
         self.rows: Union[list,None] = None
         self.dtypes: Union[Dict,None] = None
         self.shape: Union[tuple,None] = None
-    def _update_schema():
-        pass 
+    
+
     def read_from_csv(self,
                         file_path: str=None, 
                         delimiter:str=',',                        # Specify delimeter type.
@@ -68,4 +68,4 @@ class Scribe_Reader(.Scribe_Manager):
 
             for row in csv_reader:
                 row_count += 1 
-    
+    pass

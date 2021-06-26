@@ -14,7 +14,6 @@ from pathlib import Path
 from pathlib import PureWindowsPath
 from pathlib import PurePosixPath
 from typing import  Union, Dict
-import datetime
 import platform
 import re
 
