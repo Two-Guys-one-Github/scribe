@@ -1,5 +1,4 @@
-from . import scribe_readers
-
+from .scribe_readers import Scribe_File_Reader
 
 # file_path_001 = r"C:\Users\justi\Desktop\scribe\scribe\test_materials\test_data\large_sample.csv"
 # file_path_002 = r"C:\Users\justi\Desktop\scribe\scribe\test_materials\test_data\names.csv"

@@ -67,3 +67,11 @@ class Scribe_File_Reader(scribe_manager.Scribe_Manager):
             for row in csv_reader:
                 row_count += 1 
     pass
+file_path_001 = r"C:\Users\justi\Desktop\scribe\scribe\test_materials\test_data\large_sample.csv"
+# Test Scribe_Reader.read_from_csv()
+def test_scribe_file_Reader_001(file_path):
+    scribe = Scribe_File_Reader()
+    scribe.read_from_csv(file_path)
+    print(scribe.columns)
+    print(scribe.dtypes)
+    print(scribe.shape)
