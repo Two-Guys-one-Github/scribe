@@ -107,7 +107,3 @@ class Scribe_Writter(Scribe):
         super().__init__()
     
     pass
-
- 
-
-
