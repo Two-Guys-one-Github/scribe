@@ -6,7 +6,6 @@ from pathlib import Path
 from pathlib import PureWindowsPath
 from pathlib import PurePosixPath
 from typing import  Union
-from .scribe_data_types import is_float, is_int, is_bool
 import platform 
 # import pyodbc 
 # import sys
