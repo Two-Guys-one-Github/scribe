@@ -14,13 +14,14 @@ A class reader for reading in...
 
 from __future__ import annotations
 import csv
+import scribe_manager
 from pathlib import Path
 from pathlib import PureWindowsPath
 from pathlib import PurePosixPath
 from typing import  Union, Dict
-import scribe_manage
 
-class Scribe_Reader(scribe_manage.Scribe_Manager):
+
+class Scribe_Reader(.Scribe_Manager):
     """ Represents a scribe reading files or databases"""
     def __init__(self) -> Scribe_Reader:
         super().__init__()
