@@ -46,13 +46,13 @@ class Scribe_Reader(Scribe):
     """ Represents a scribe reading files or databases"""
     def __init__(self) -> Scribe_Reader:
         super().__init__()
-        self.data_path: str = None                                  # Path to file componet
-        self.data_directory: str = None
-        self.columns: list = None
-        self.rows: list = None
-        self.dtypes: Dict = None
-        self.shape: tuple = None
-        self.schema: Dict = None
+        self.data_path: Union[str,None] = None                     # Path to file componet
+        self.data_directory: Union[str,None] = None
+        self.columns: Union[list,None] = None
+        self.rows: Union[list,None] = None
+        self.dtypes: Union[Dict,None] = None
+        self.shape: Union[tuple,None] = None
+        self.schema: Union[Dict,None] = None
     def _update_schema():
         pass 
     def read_from_csv(self,
@@ -68,6 +68,7 @@ class Scribe_Reader(Scribe):
         self.data_directory = Path(self.data_path).parent
         row_count = 0
         found_all_data_types = False
+        self.dtypes = {}
 
         with open(self.data_path, newline='', mode=mode) as csv_file:
             csv_reader = csv.reader(csv_file, delimiter = delimiter)
