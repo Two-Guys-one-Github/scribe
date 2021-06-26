@@ -20,10 +20,9 @@ from pathlib import PureWindowsPath
 from pathlib import PurePosixPath
 from typing import  Union, Dict
 
-
-class Scribe_Reader(scribe_manager.Scribe_Manager):
+class Scribe_File_Reader(scribe_manager.Scribe_Manager):
     """ Represents a scribe reading files or databases"""
-    def __init__(self) -> Scribe_Reader:
+    def __init__(self) -> Scribe_File_Reader:
         super().__init__()
         self.data_path: Union[str,None] = None                     # Path to file componet
         self.data_directory: Union[str,None] = None
@@ -31,7 +30,6 @@ class Scribe_Reader(scribe_manager.Scribe_Manager):
         self.rows: Union[list,None] = None
         self.dtypes: Union[Dict,None] = None
         self.shape: Union[tuple,None] = None
-    
 
     def read_from_csv(self,
                         file_path: str=None, 

@@ -10,8 +10,8 @@ from . import scribe_manager
 from pathlib import Path
 from typing import  Union
 
-class Scribe_Build_Sqlite3(scribe_manager.Scribe_Manager):
-    def __init__(self) -> Scribe_Build_Sqlite3:
+class Scribe_SQLite_Builder(scribe_manager.Scribe_Manager):
+    def __init__(self) -> Scribe_SQLite_Builder:
         super().__init__()
         self.connection = None
         self.db_name = None
