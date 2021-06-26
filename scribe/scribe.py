@@ -52,7 +52,6 @@ class Scribe_Reader(Scribe):
         self.rows: Union[list,None] = None
         self.dtypes: Union[Dict,None] = None
         self.shape: Union[tuple,None] = None
-        self.schema: Union[Dict,None] = None
     def _update_schema():
         pass 
     def read_from_csv(self,
