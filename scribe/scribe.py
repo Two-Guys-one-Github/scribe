@@ -27,6 +27,21 @@ class Scribe(object):
             else: return PurePosixPath(this_path)
         else:
             return None
+    def is_float(self,num):
+        try:
+            float(self,num)
+            return True
+        except ValueError:
+            return False
+    def is_int(self,num):
+        try:
+            int(num)
+            return True
+        except ValueError:
+            return False
+    def is_bool(self,b):
+        if b == "True": return True
+        else: return False
     pass
 
 class Scribe_Reader(Scribe):
@@ -66,13 +81,13 @@ class Scribe_Reader(Scribe):
                 row_count += 1
                 for col_i, row_i in zip(self.columns, row): 
                     if self.dtypes[col_i] == "":
-                        if row_i.__contains__(".") and is_float(row_i):
+                        if row_i.__contains__(".") and self.is_float(row_i):
                             self.dtypes[col_i] = "Float"
                             d_types_count += 1 
-                        elif not row_i.__contains__(".") and is_int(row_i):
+                        elif not row_i.__contains__(".") and self.is_int(row_i):
                             self.dtypes[col_i] = "Integer"
                             d_types_count += 1 
-                        elif is_bool(row_i):
+                        elif self.is_bool(row_i):
                             self.dtypes[col_i] = "Boolean"
                             d_types_count += 1 
                         elif len(row_i)>0:
