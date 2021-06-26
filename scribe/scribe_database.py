@@ -10,7 +10,7 @@ from scribe import Scribe
 from pathlib import Path
 from typing import  Union
 
-class Sqlite3_Scribe(Scribe):
+class Scribe_Build_Sqlite3(Scribe):
     def __init__(self) -> Sqlite3_Scribe:
         super().__init__()
         self.connection = None
