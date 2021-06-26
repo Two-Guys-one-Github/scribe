@@ -5,7 +5,7 @@ import csv
 from pathlib import Path
 from pathlib import PureWindowsPath
 from pathlib import PurePosixPath
-from typing import  Union
+from typing import  Union, Dict
 import platform 
 # import pyodbc 
 # import sys
@@ -48,12 +48,13 @@ class Scribe_Reader(Scribe):
         super().__init__()
         self.data_path: str = None                                  # Path to file componet
         self.data_directory: str = None
-        self.columns = list()
-        self.rows = list()
-        self.dtypes = dict()
-        self.shape = tuple()
-        self.schema = dict()
-        
+        self.columns: list = None
+        self.rows: list = None
+        self.dtypes: Dict = None
+        self.shape: tuple = None
+        self.schema: Dict = None
+    def _update_schema():
+        pass 
     def read_from_csv(self,
                         file_path: str=None, 
                         delimiter:str=',',                        # Specify delimeter type.
