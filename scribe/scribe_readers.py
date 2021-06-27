@@ -14,10 +14,8 @@ A class reader for reading in...
 
 from __future__ import annotations
 import csv
-from . import scribe_manager
+import scribe_manager 
 from pathlib import Path
-from pathlib import PureWindowsPath
-from pathlib import PurePosixPath
 from typing import  Union, Dict
 
 class Scribe_File_Reader(scribe_manager.Scribe_Manager):
@@ -30,6 +28,7 @@ class Scribe_File_Reader(scribe_manager.Scribe_Manager):
         self.rows: Union[list,None] = None
         self.dtypes: Union[Dict,None] = None
         self.shape: Union[tuple,None] = None
+        self.delimiter: Union[str,None] = None
 
     def read_from_csv(self,
                         file_path: str=None, 
@@ -38,8 +37,26 @@ class Scribe_File_Reader(scribe_manager.Scribe_Manager):
                         read_framework: str ="csv_reader",        # Implement other modules in the future.
                         mode: str = 'r',                          # Mode is default to the reader
                         log_time: bool = False,                   # log time 
+                        **kwargs                                  # Super Arguments passed from parent class Scribe.convert_csv_to_<db type>
                         ):
         """Read a csv file"""
+        self.delimiter = delimiter
+        # Handle Key word Arguments.
+        if kwargs.get("file_path"):
+            file_path = file_path
+        if kwargs.get("delimiter"):
+            delimiter = delimiter
+            self.delimiter = delimiter
+        if kwargs.get("memory"):
+            memory = memory
+        if kwargs.get("read_framework"):
+            read_framework = read_framework
+        if kwargs.get("mode"):
+            mode = mode
+        if kwargs.get("log_time"):
+            log_time = log_time
+
+        # Format paths 
         self.data_path = self._format_os_path(file_path)
         self.data_directory = Path(self.data_path).parent
         row_count = 0
@@ -66,12 +83,7 @@ class Scribe_File_Reader(scribe_manager.Scribe_Manager):
 
             for row in csv_reader:
                 row_count += 1 
+        
+        self.shape = (row_count, d_type_len)        # shape = (qty of rows-headers, qty of columns)
+
     pass
-file_path_001 = r"C:\Users\justi\Desktop\scribe\scribe\test_materials\test_data\large_sample.csv"
-# Test Scribe_Reader.read_from_csv()
-def test_scribe_file_Reader_001(file_path):
-    scribe = Scribe_File_Reader()
-    scribe.read_from_csv(file_path)
-    print(scribe.columns)
-    print(scribe.dtypes)
-    print(scribe.shape)
