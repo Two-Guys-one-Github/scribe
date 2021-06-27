@@ -63,14 +63,14 @@ class Scribe_File_Reader(scribe_manager.Scribe_Manager):
         found_all_data_types = False
         self.dtypes = {}
 
+        # Read .CSV and count rows and columns, then determine parse value types.
         with open(self.data_path, newline='', mode=mode) as csv_file:
             csv_reader = csv.reader(csv_file, delimiter = delimiter)
             self.columns = next(csv_reader)
             d_type_len = len(self.columns)
             for colmn in self.columns:
                 self.dtypes[colmn] = ""          
-            d_types_count = 0
-            
+            d_types_count = 0     
             while not found_all_data_types:
                 row = next(csv_reader)
                 row_count += 1
@@ -80,10 +80,7 @@ class Scribe_File_Reader(scribe_manager.Scribe_Manager):
                         d_types_count += 1
                 if d_types_count == d_type_len:
                     found_all_data_types = True
-
             for row in csv_reader:
                 row_count += 1 
-        
         self.shape = (row_count, d_type_len)        # shape = (qty of rows-headers, qty of columns)
-
     pass
