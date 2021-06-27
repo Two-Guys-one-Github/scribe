@@ -14,7 +14,7 @@ A class reader for reading in...
 
 from __future__ import annotations
 import csv
-import scribe_manager 
+from scribe import scribe_manager 
 from pathlib import Path
 from typing import  Union, Dict
 

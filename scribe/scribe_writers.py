@@ -6,7 +6,7 @@ SQLite3 DB-API Docs: https://docs.python.org/3/library/sqlite3.htm
 from __future__ import annotations
 import sqlite3
 from sqlite3 import Error
-import scribe_manager
+from scribe import scribe_manager
 import csv
 from pathlib import Path
 from typing import  Union

@@ -56,35 +56,4 @@ class Scribe_Manager(object):
                 else:
                     return "TEXT"
         return "Nan"
-
-
-
-                
-                
-                
-                
-        
-    # def str_is_type(self, data: Union[str, None]) -> str:
-    #     """"Return the type of data from a string"""
-    #     if (re.search(r'[+-]?[0-9]+\.[0-9]+', data)):
-    #         try:
-    #             val = float(data)
-    #             return "float"
-    #         except ValueError:
-    #             return "str"
-    #     else:
-    #         try:
-    #             val = int(data)
-    #             return "int"
-    #         except ValueError:
-    #             pass
-    #     if data == "True" or "False":
-    #         return "bool"
-    #     elif data == "" or data == None:
-    #         return "None_1"
-    #     elif len(data) > 0:
-    #         return "str"
-    #     else:
-    #         return "None_2"
-    
     

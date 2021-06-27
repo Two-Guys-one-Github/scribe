@@ -1,4 +1,4 @@
-import scribe
+import scribe.scribe as scribe
 import time
 
 file_path_001 = r"C:\Users\justi\Desktop\scribe2\test_materials\test_data\large_sample.csv"
