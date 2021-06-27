@@ -1,7 +1,7 @@
 from __future__ import annotations
 from pathlib import Path
-from scribe import scribe_readers
-from scribe import scribe_writers
+from scribe.scribe import scribe_readers
+from scribe.scribe import scribe_writers
 import sys
 
 from typing import  Union
